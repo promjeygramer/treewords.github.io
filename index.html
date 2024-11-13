@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efecto de Escritura con Corazón</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #282c34;
+            color: #fff;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #texto {
+            font-size: 24px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #fff;
+            display: inline-block;
+        }
+
+        #corazon {
+            font-size: 50px;
+            margin-top: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="texto"></div>
+    <div id="corazon">💕</div>
+
+    <script>
+        const texto = "Te amo Nube Monserrath Gonzalez Rodriguez!";
+        let index = 0;
+
+        function escribir() {
+            if (index < texto.length) {
+                document.getElementById("texto").innerHTML += texto.charAt(index);
+                index++;
+                setTimeout(escribir, 100); // Ajusta el tiempo de aparición de cada letra
+            }
+        }
+
+        escribir();
+    </script>
+</body>
+</html>
