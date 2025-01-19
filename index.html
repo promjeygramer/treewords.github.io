@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💖</title>
+    <title>Prueba</title>
     <style>
         body {
             font-family: 'Courier New', monospace;
@@ -11,19 +11,14 @@
             color: #fff;
             text-align: center;
             margin-top: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         #texto {
             font-size: 24px;
-            white-space: pre-wrap; /* Permite ajustar el texto automáticamente */
+            white-space: nowrap;
             overflow: hidden;
             border-right: 2px solid #fff;
             display: inline-block;
-            max-width: 90%; /* Ancho máximo adaptativo */
-            word-wrap: break-word; /* Fuerza a dividir palabras largas */
         }
 
         #corazon {
@@ -34,18 +29,18 @@
     </style>
 </head>
 <body>
-    <div id="texto"></div>
+    <div id="texto">Cargando...</div>
     <div id="corazon">💕</div>
 
     <script>
-        const texto = "El día que llegues a abrir de corazón esta página... recuerda lo mucho que te quise espero que ahora seas feliz adios... 9/01/2025;
+        const texto = "El día que llegues a abrir de corazón esta página...";
         let index = 0;
 
         function escribir() {
             if (index < texto.length) {
                 document.getElementById("texto").innerHTML += texto.charAt(index);
                 index++;
-                setTimeout(escribir, 100); // Ajusta el tiempo de aparición de cada letra
+                setTimeout(escribir, 100);
             }
         }
 
