@@ -13,16 +13,13 @@
             margin-top: 50px;
         }
 
-        #texto, #texto2 {
+        .linea {
             font-size: 24px;
             white-space: nowrap;
             overflow: hidden;
             border-right: 2px solid #fff;
             display: inline-block;
-        }
-
-        #texto2 {
-            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
         #corazon {
@@ -33,36 +30,38 @@
     </style>
 </head>
 <body>
-    <div id="texto"></div>
-    <div id="texto2"></div>
+    <div id="linea1" class="linea"></div>
+    <div id="linea2" class="linea"></div>
+    <div id="linea3" class="linea"></div>
+    <div id="linea4" class="linea"></div>
     <div id="corazon">💕</div>
 
     <script>
-        const texto1 = "El día que llegues a abrir de corazón esta página...";
-        const texto2 = "Recuerda lo mucho que te quise adios... 09/01/2025";
-        let index1 = 0;
-        let index2 = 0;
+        const lineas = [
+            "El día que llegues a abrir",
+            "de corazón esta página",
+            "recuerda lo mucho que",
+            "te quise...... 09/12/2025"
+        ];
 
-        function escribirTexto1() {
-            if (index1 < texto1.length) {
-                document.getElementById("texto").innerHTML += texto1.charAt(index1);
-                index1++;
-                setTimeout(escribirTexto1, 100);
-            } else {
-                // Llamar a la animación de la segunda línea cuando termine la primera
-                setTimeout(escribirTexto2, 500);
+        let indexLinea = 0; // Para las líneas
+        let indexCaracter = 0; // Para los caracteres de la línea actual
+
+        function escribirTexto() {
+            if (indexCaracter < lineas[indexLinea].length) {
+                // Añadir el carácter actual a la línea correspondiente
+                document.getElementById(`linea${indexLinea + 1}`).innerHTML += lineas[indexLinea].charAt(indexCaracter);
+                indexCaracter++;
+                setTimeout(escribirTexto, 100); // Animar el siguiente carácter
+            } else if (indexLinea < lineas.length - 1) {
+                // Pasar a la siguiente línea
+                indexLinea++;
+                indexCaracter = 0;
+                setTimeout(escribirTexto, 500); // Pausa antes de la siguiente línea
             }
         }
 
-        function escribirTexto2() {
-            if (index2 < texto2.length) {
-                document.getElementById("texto2").innerHTML += texto2.charAt(index2);
-                index2++;
-                setTimeout(escribirTexto2, 100);
-            }
-        }
-
-        escribirTexto1();
+        escribirTexto();
     </script>
 </body>
 </html>
