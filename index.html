@@ -13,12 +13,16 @@
             margin-top: 50px;
         }
 
-        #texto {
+        #texto, #texto2 {
             font-size: 24px;
             white-space: nowrap;
             overflow: hidden;
             border-right: 2px solid #fff;
             display: inline-block;
+        }
+
+        #texto2 {
+            margin-top: 20px;
         }
 
         #corazon {
@@ -30,21 +34,35 @@
 </head>
 <body>
     <div id="texto"></div>
+    <div id="texto2"></div>
     <div id="corazon">💕</div>
 
     <script>
-        const texto = "El dia que llegues a abrir de ";
-        let index = 0;
+        const texto1 = "El día que llegues a abrir de corazón esta página...";
+        const texto2 = "Recuerda lo mucho que te quise adios... 09/01/2025;
+        let index1 = 0;
+        let index2 = 0;
 
-        function escribir() {
-            if (index < texto.length) {
-                document.getElementById("texto").innerHTML += texto.charAt(index);
-                index++;
-                setTimeout(escribir, 100); // Ajusta el tiempo de aparición de cada letra
+        function escribirTexto1() {
+            if (index1 < texto1.length) {
+                document.getElementById("texto").innerHTML += texto1.charAt(index1);
+                index1++;
+                setTimeout(escribirTexto1, 100);
+            } else {
+                // Llamar a la animación de la segunda línea cuando termine la primera
+                setTimeout(escribirTexto2, 500);
             }
         }
 
-        escribir();
+        function escribirTexto2() {
+            if (index2 < texto2.length) {
+                document.getElementById("texto2").innerHTML += texto2.charAt(index2);
+                index2++;
+                setTimeout(escribirTexto2, 100);
+            }
+        }
+
+        escribirTexto1();
     </script>
 </body>
 </html>
