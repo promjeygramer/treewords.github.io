@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba</title>
+    <title><3</title>
     <style>
         body {
             font-family: 'Courier New', monospace;
@@ -29,18 +29,18 @@
     </style>
 </head>
 <body>
-    <div id="texto">Cargando...</div>
+    <div id="texto"></div>
     <div id="corazon">💕</div>
 
     <script>
-        const texto = "El día que llegues a abrir de corazón esta página...";
+        const texto = "El dia que llegues a abrir de ";
         let index = 0;
 
         function escribir() {
             if (index < texto.length) {
                 document.getElementById("texto").innerHTML += texto.charAt(index);
                 index++;
-                setTimeout(escribir, 100);
+                setTimeout(escribir, 100); // Ajusta el tiempo de aparición de cada letra
             }
         }
 
